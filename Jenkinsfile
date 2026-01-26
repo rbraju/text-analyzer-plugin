@@ -19,20 +19,23 @@ pipeline {
             }
         }
 
-        stage('Install Quality Gate') {
-            steps {
-                sh 'npm install -g quality-gates-platform'
-            }
-        }
-
         stage('Run Quality Gate') {
             steps {
                 sh '''
-                    qgate src
+                    // Clone quality-gates-platform
+                    git clone https://github.com/rbraju/quality-gates-platform.git quality-gate
+                    cd quality-gate
+                    npm ci
+                    npm run build
+
+                    // Make the CLI available globally in this session
+                    npm link
+
+                    // Run the CLI
+                    qgate $WORKSPACE/src
                 '''
             }
         }
-    }
 
     post {
         failure {
