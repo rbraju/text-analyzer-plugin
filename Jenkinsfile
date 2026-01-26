@@ -42,6 +42,12 @@ pipeline {
                 archiveArtifacts artifacts: 'violations.json', allowEmptyArchive: true
             }
         }
+
+        stage('Cleanup') {
+            steps {
+                deleteDir()
+            }
+        }
     }
 
     post {
