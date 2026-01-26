@@ -22,16 +22,16 @@ pipeline {
         stage('Run Quality Gate') {
             steps {
                 sh '''
-                    // Clone quality-gates-platform
+                    # Clone quality-gates-platform
                     git clone https://github.com/rbraju/quality-gates-platform.git quality-gate
                     cd quality-gate
                     npm ci
                     npm run build
 
-                    // Make the CLI available globally in this session
+                    # Make the CLI available globally in this session
                     npm link
 
-                    // Run the CLI
+                    # Run the CLI
                     qgate $WORKSPACE/src
                 '''
             }
