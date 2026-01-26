@@ -36,14 +36,20 @@ pipeline {
                 '''
             }
         }
+
+        stage('Archive Report') {
+            steps {
+                archiveArtifacts artifacts: 'violations.json', allowEmptyArchive: true
+            }
+        }
     }
 
     post {
         failure {
-            echo "Quality Gate Failed!!!"
+            echo "❌ Quality Gate Failed! Check violations.json for details"
         }
         success {
-            echo "Quality Gate Passed!"
+            echo "✅ Quality Gate Passed!"
         }
     }
 }
