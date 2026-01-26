@@ -30,6 +30,7 @@ pipeline {
 
                     # Make the CLI available globally in this session
                     npm link
+                    chmod +x $(which qgate)
 
                     # Run the CLI
                     qgate $WORKSPACE/src
