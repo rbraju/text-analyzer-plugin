@@ -1,8 +1,11 @@
 pipeline {
     agent any
 
-    stages {
+    tools {
+        nodejs 'node18'
+    }
 
+    stages {
         stage('Checkout') {
             steps {
                 checkout scm
