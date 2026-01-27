@@ -36,7 +36,7 @@ pipeline {
 
         stage('Archive Report') {
             steps {
-                archiveArtifacts artifacts: 'violations.json', allowEmptyArchive: true
+                archiveArtifacts artifacts: 'quality-gate/violations.json', allowEmptyArchive: true
             }
         }
     }
