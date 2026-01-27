@@ -26,14 +26,10 @@ pipeline {
                     git clone https://github.com/rbraju/quality-gates-platform.git quality-gate
                     cd quality-gate
                     npm ci
-                    npm run build
+                    npm run build || echo 'No build step'
 
-                    # Make the CLI available globally in this session
-                    npm link
-                    chmod +x $(which qgate)
-
-                    # Run the CLI
-                    qgate $WORKSPACE/src
+                    # Run CLI using local node and entry file
+                    node dist/index.js $WORKSPACE/src
                 '''
             }
         }
