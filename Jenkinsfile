@@ -43,15 +43,13 @@ pipeline {
                 archiveArtifacts artifacts: 'violations.json', allowEmptyArchive: true
             }
         }
-
-        stage('Cleanup') {
-            steps {
-                deleteDir()
-            }
-        }
     }
 
     post {
+        always {
+            echo "Cleaning workspace..."
+            deleteDir()
+        }
         failure {
             echo "❌ Quality Gate Failed! Check violations.json for details"
         }
