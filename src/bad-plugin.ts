@@ -1,11 +1,11 @@
 
 export class BadPlugin {
 
-    name: any = "Bad Plugin";
+    name: string = "Bad Plugin";
 
-    analyze(text) {
+    analyze(text: string) {
         console.log(`Analyzing text ${text}..`);
-        eval('console.log("Forbidden pattern")');
+        // eval('console.log("Forbidden pattern")');
         return text.split(' ').length;
     }
 }
