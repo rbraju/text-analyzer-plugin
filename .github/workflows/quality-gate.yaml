@@ -27,12 +27,12 @@ jobs:
           git clone https://github.com/rbraju/quality-gates-platform.git
           cd quality-gates-platform
           npm ci
-          npm build || true
+          npm build
           npm link
 
       - name: Run Quality Gate
         run: |
           pwd
           ls -la
-          cd ..
-          ls -la
+          cd quality-gates-platform
+          node dist/index.js ../src
