@@ -1,0 +1,12 @@
+name: Quality Gate
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  sanity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: say-hello
+        run: echo 'Running GitHub Actions'
