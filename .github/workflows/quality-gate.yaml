@@ -5,8 +5,19 @@ on:
     branches: [master]
 
 jobs:
-  sanity:
+  quality-gate:
     runs-on: ubuntu-latest
     steps:
-      - name: say-hello
-        run: echo 'Running GitHub Actions'
+      - name: Checkout plugin repo
+        run: actions/checkout@v4
+
+      - name: List files
+        run: ls -la
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+        run: node -v
+        run: npm -v
+        
