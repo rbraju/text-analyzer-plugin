@@ -31,4 +31,6 @@ jobs:
           npm link
 
       - name: Run Quality Gate
-        run: npx qgate ./src
+        run: |
+          cd quality-gates-platform
+          node dist/index.js 
