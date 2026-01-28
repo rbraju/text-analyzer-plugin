@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "test": "echo 'Run rbr-testing-framework here' && exit 0"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
