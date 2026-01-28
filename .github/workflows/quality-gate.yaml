@@ -22,17 +22,16 @@ jobs:
       - run: node -v
       - run: npm -v
 
-      - name: Clone Quality Gates Platform
+      - name: Install and Run Quality Gates CLI
         run: |
+          # Clone the quality-gates repo
           git clone https://github.com/rbraju/quality-gates-platform.git
           cd quality-gates-platform
+
+          # Install dependencies and build
           npm ci
           npm run build
-          npm link
 
-      - name: Run Quality Gate
-        run: |
-          pwd
-          ls -la
-          cd quality-gates-platform
-          node dist/index.js ../src
+          # Link CLI & Run
+          npm link
+          qgate $GITHUB_WORKSPACE/src
