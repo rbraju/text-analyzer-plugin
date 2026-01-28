@@ -35,3 +35,8 @@ jobs:
           # Link CLI & Run
           npm link
           qgate $GITHUB_WORKSPACE/src
+
+      - name: Run unit tests
+        run: |
+          npm ci
+          npm run tests
