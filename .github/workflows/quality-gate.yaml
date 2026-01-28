@@ -27,7 +27,7 @@ jobs:
           git clone https://github.com/rbraju/quality-gates-platform.git
           cd quality-gates-platform
           npm ci
-          npm build
+          npm run build
           npm link
 
       - name: Run Quality Gate
