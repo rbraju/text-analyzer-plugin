@@ -39,4 +39,4 @@ jobs:
       - name: Run unit tests
         run: |
           npm ci
-          npm run tests
+          npm run test
