@@ -18,8 +18,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-        run: node -v
-        run: npm -v
+      - run: node -v
+      - run: npm -v
 
       - name: Clone Quality Gates Platform
         run: |
