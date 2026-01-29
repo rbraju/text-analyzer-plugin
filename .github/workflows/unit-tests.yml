@@ -2,8 +2,8 @@ name: Unit Tests
 
 on:
   push:
-    branches:
-      - **
+    branches: # Run for all branches when a commit is pushed
+      - "**"
 
 jobs:
   unit-tests:
