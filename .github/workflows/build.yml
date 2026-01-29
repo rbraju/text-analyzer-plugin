@@ -5,7 +5,7 @@ on:
     branches: [master]
 
 jobs:
-  quality-gate:
+  Quality-Gate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout plugin repo
@@ -24,10 +24,9 @@ jobs:
 
       - name: Install and Run Quality Gates CLI
         run: |
-          # Clone the quality-gates repo
+          # Clone the quality-gates-platform repo
           git clone https://github.com/rbraju/quality-gates-platform.git
           cd quality-gates-platform
-
           # Install dependencies and build
           npm ci
           npm run build
@@ -35,7 +34,10 @@ jobs:
           # Link CLI & Run
           npm link
           qgate $GITHUB_WORKSPACE/src
-
+  
+  Unit-Tests:
+    runs-on: ubuntu-latest
+    steps:
       - name: Run unit tests
         run: |
           npm ci
