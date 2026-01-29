@@ -5,7 +5,7 @@ on:
     branches: [master]
 
 jobs:
-  Quality-Gate:
+  quality-gate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout plugin repo
@@ -30,8 +30,9 @@ jobs:
           # Link CLI & Run
           npm link
           qgate $GITHUB_WORKSPACE/src
-  
-  Unit-Tests:
+
+  unit-tests:
+    needs: quality-gate
     runs-on: ubuntu-latest
     steps:
       - name: Checkout plugin repo
