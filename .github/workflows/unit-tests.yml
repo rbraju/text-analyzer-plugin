@@ -1,0 +1,25 @@
+name: Unit Tests
+
+on:
+  push:
+    branches:
+      - ** # Run for all branches when a commit is pushed
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout plugin repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Run unit tests
+        run: |
+          pwd
+          ls -ltar
+          npm ci
+          npm run test
