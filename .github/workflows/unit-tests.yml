@@ -1,8 +1,9 @@
 name: Unit Tests
 
 on:
-    pull_request:
-      branches: [master]
+  push:
+    branches: # Run for all branches when a commit is pushed
+      - "**"
 
 jobs:
   unit-tests:
