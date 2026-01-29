@@ -11,19 +11,15 @@ jobs:
       - name: Checkout plugin repo
         uses: actions/checkout@v4
 
-      - name: List files
-        run: ls -la
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 18
-      
-      - run: node -v
-      - run: npm -v
 
       - name: Install and Run Quality Gates CLI
         run: |
+          node -v
+          npm -v
           # Clone the quality-gates-platform repo
           git clone https://github.com/rbraju/quality-gates-platform.git
           cd quality-gates-platform
@@ -38,6 +34,14 @@ jobs:
   Unit-Tests:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout plugin repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
       - name: Run unit tests
         run: |
           pwd
