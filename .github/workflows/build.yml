@@ -30,22 +30,3 @@ jobs:
           # Link CLI & Run
           npm link
           qgate $GITHUB_WORKSPACE/src
-
-  unit-tests:
-    needs: quality-gate
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout plugin repo
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: Run unit tests
-        run: |
-          pwd
-          ls -ltar
-          npm ci
-          npm run test

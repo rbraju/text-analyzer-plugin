@@ -12,7 +12,6 @@ export class GoodPlugin implements Plugin {
 
     analyze(text: string): number {
         const words = text.split(' ');
-        console.log(`Analyzed text ${text}. No. of words, ${words.length}`);
         return words.length;
     }
 }
