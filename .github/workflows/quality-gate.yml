@@ -1,4 +1,4 @@
-name: Integration and Quality Gate
+name: Integration Tests and Quality Gate
 
 on:
   pull_request:
@@ -8,6 +8,7 @@ on:
 
 jobs:
   quality-gate:
+    name: "Integration Tests & Quality Gate"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout plugin repo

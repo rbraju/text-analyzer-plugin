@@ -1,7 +1,7 @@
 
 export class BadPlugin {
 
-    name = "Bad Plugin";
+    name: any = "Bad Plugin";
 
     analyze(text: string) {
         // eval('console.log("Forbidden pattern")');

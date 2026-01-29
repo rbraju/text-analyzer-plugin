@@ -4,9 +4,13 @@ on:
   push:
     branches: # Run for all branches when a commit is pushed
       - "**"
+  pull_request:
+    branches:
+      - "**"
 
 jobs:
   unit-tests:
+    name: "Unit Tests"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout plugin repo
