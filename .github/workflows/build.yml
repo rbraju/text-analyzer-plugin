@@ -40,5 +40,7 @@ jobs:
     steps:
       - name: Run unit tests
         run: |
+          pwd
+          ls -ltar
           npm ci
           npm run test
