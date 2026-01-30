@@ -1,4 +1,4 @@
-name: Integration Tests and Quality Gate
+name: quality-gate
 
 on:
   pull_request:
